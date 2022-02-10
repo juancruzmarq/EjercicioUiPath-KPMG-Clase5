@@ -1,0 +1,306 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="971,1270" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName=" Sequence - Main" sap:VirtualizedContainerService.HintSize="551,1205" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strWebsite" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtPalabras" />
+      <Variable x:TypeArguments="x:String" Default="[strRootPath + &quot;Input\palabras.xlsx&quot;]" Name="strPalabrasPath" />
+      <Variable x:TypeArguments="x:String" Default="[Directory.GetCurrentDirectory.ToString]" Name="strRootPath" />
+      <Variable x:TypeArguments="x:String" Name="strPalabrasTraducidasPath">
+        <Variable.Default>
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRootPath + &quot;\Output\palabrasTraducidas.xlsx&quot;" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="strPalabra" />
+      <Variable x:TypeArguments="x:String" Name="variable2" />
+      <Variable x:TypeArguments="x:String" Name="strPalabraTraducida" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Sequence - Extraccion de palabras" sap:VirtualizedContainerService.HintSize="509,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[strPalabrasPath]">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelReadRange AddHeaders="True" DataTable="[dtPalabras]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                <ui:ExcelReadRange.Range>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:ExcelReadRange.Range>
+              </ui:ExcelReadRange>
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+      </ui:ExcelApplicationScope>
+    </Sequence>
+    <Assign sap:VirtualizedContainerService.HintSize="509,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strWebsite]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">www.deepl.com</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="509,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Open browser: &quot; + strWebsite]" />
+    <Sequence DisplayName="Sequence  - Navegador" sap:VirtualizedContainerService.HintSize="509,490" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="467,398" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[strWebsite]">
+        <ui:OpenBrowser.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="284,297" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+              </Sequence>
+              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe DeepL'" sap:VirtualizedContainerService.HintSize="242,51" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="c338b3c3dd3e370fbf5eeac031cf4055" Selector="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo' /&gt;">
+                <ui:BrowserScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,636" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: DeepL Translate - El mejor traductor del mundo" sap:VirtualizedContainerService.HintSize="434,544" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f9a31efa-dae7-4ac0-bb0f-a5cf575b1775" Version="V1">
+                        <uix:NApplicationCard.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,328" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Sequence - Seleccion de idiomas" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'Selecciona el'" sap:VirtualizedContainerService.HintSize="510,156" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9a31efa-dae7-4ac0-bb0f-a5cf575b1775" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.deepl.com/translator" DesignTimeRectangle="285, 322, 141, 56" ElementType="Button" FriendlyName="'Selecciona el'" FullSelectorArgument="&lt;webctrl aaname='                                 Selecciona el idioma de partida*' parentid='dl_translator' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                 Selecciona el idioma de partida*' parentid='dl_translator' tag='BUTTON' type='' check:text='Selecciona el idioma de partida&amp;#xD;&amp;#xA;                                detectar idioma' /&gt;" Guid="a805b941-592f-413f-8504-8ba7bbc312e8" ImageBase64="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" InformativeScreenshot="965e65bc9a66931e72ec18ffc34d58f4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'estonio'" sap:VirtualizedContainerService.HintSize="510,156" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9a31efa-dae7-4ac0-bb0f-a5cf575b1775" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.deepl.com/translator" DesignTimeRectangle="504, 346, 182, 24" ElementType="Text" FriendlyName="'estonio'" FullSelectorArgument="&lt;webctrl aaname='estonio' parentid='dl_translator' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='estonio' parentid='dl_translator' tag='DIV' type='' check:text='estonio' /&gt;" Guid="ea5e1ad7-9bde-4937-b1a6-3a3c6e5bff09" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALoAAAAcCAYAAADWS6UCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGeSURBVHhe7dfNjYMwEEDh7Ym6QiuITqCSiDIi0YMX/8DYwxApUQ7ZnfdJPiwmYQ/PjvkJgAOEDhcIHS4QOlwgdLhA6HCB0OECocOFPxL6GqZbF7pxKX8DryF0uPC50O9D6LohkCK+EaHDhVPoy7gdEbp99GF6lImkHCHUfPuZOOrg9We6MNzLVJLn+3ltv+c2bTM7uae2zn3zvRxtcKUJPYVWx5J2aYldz6/zIAvB3NGXMOgAH1Pot2sSrSwEWQD5c/qeOvS8KIwF1SwQIJPQU4A61Dowe1c9GKGnHdcIr71eAlW7sXXP8ez0v+pfm83VdbgnoadQ886qxxHYcY9eEBsj9LjrmgujWVT2AnoaenyWuXPn+9qjEaBDN+M5k7NxFTah44upo8srP/v5HH1EZYTexiqeRlw8vYejC15UvYzmmHSYy1jtvGM9p0I3I7t+GZVd943QN5cvo+qsD0RV6FGJJR1L8pC4znP6iJDji6MOsMR+DL0Y3gs9kufloeeBnQod+J8IHS4QOlwgdLhA6HCB0OECocMFQocDIfwC5xnPtAtIJ38AAAAASUVORK5CYII=" InformativeScreenshot="9446b441520f869417caee29d65f0dc4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo' /&gt;" SearchSteps="FuzzySelector, Image">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="492, 334, 230, 48" ElementType="Button" FriendlyName="'estonio'" FullSelectorArgument="&lt;webctrl aaname='estonio' parentid='dl_translator' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='estonio' parentid='dl_translator' tag='BUTTON' type='' check:text='estonio' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOoAAAA0CAYAAACEoKQRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJOSURBVHhe7dzNbcIwGIDhjMAxe2Sb7ACrRNkEJomYgRMSFxbAje3gPwxVIVW/r3ofyUXBAXrgxSYHGgNAvOZ6vRoGgyF7NG3bmmmalm4BSHI6ndxts9lsTN/37gCALFmodlUFIE8Wqh0A5CFUQAFCBRQgVEABQgUUIFRAAUIFFCBUQAFCBRQgVEABQgUUIFRAAUIFFCBUQAFCBRT456FezH7bmW48LseAToQKKPD3oU6D6brBkBLwHKECCqwW6nGct5jdfezM/rxMOMsWtJjPH2NHGmz5mM4M2Y8k+vnd4ZI/z3Y/z9zFc1KXwy57XrbGkG6VUF0o6ZvdrZIx1nL+chhiyNUV9WiGMqDz3uzm+2J0MeQYsH9ceU4aqo+68oGQBQ7I8nmoLqAytDSQ+qoWVEJ1K14lnPz+JbBiNaydE17b/a/laj97dj8gxOehutD8ylaOEEg4pwx6VgnVrnrVsLMPhfoHwMtQ7WtVV05/Xr61BuRYJ9Tqm/9R/G6YhEmowLdW2vr+ZNvov0eGKCqh5rFFLyNcvDyHrS+UWuFiko+hDOs4JivfmM4VoVYjeX4xKa56b4Q6e3oxqfiuC0iyQqjW8mZ321o/YhyPc+UW08djRxrQEmsYZczvhWrF1/OjnAekWSlUAL+JUAEFCBVQgFABBQgVUIBQAQUIFVCAUAEFCBVQgFABBQgVUIBQAQUIFVCAUAEFCBVQIAu1bVt3AECWLNS+790BAFlCqHY1nSZ+3QuQKIRqI73dbu4AgCwhVPvnfOZn+ACJfKjGfAFdkutOv2NY2QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'Selecciona el'" sap:VirtualizedContainerService.HintSize="510,156" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9a31efa-dae7-4ac0-bb0f-a5cf575b1775" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.deepl.com/translator" DesignTimeRectangle="989, 322, 129, 56" ElementType="Button" FriendlyName="'Selecciona el'" FullSelectorArgument="&lt;webctrl aaname='                                         Selecciona el idioma de*' parentid='dl_translator' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                         Selecciona el idioma de*' parentid='dl_translator' tag='BUTTON' type='' check:text='Selecciona el idioma de llegada&amp;#xD;&amp;#xA;                                        &amp;#xD;&amp;#xA;                          ' /&gt;" Guid="d07ca43d-4603-4362-9468-d6c4d1796516" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIUAAAA8CAYAAABIH3mBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAWdSURBVHhe7ZnPSyNJFID9D/Jf5CJ4kczJvQjmlL04uIJEQWhkUNFLdljQy0xgw+IPFiJIPIysDLKICAYGJzAozsJAH8QJDI7MwqAoTGAhREUygvD2VXVV0t2v02lNjBN4HxSY6melq+rrqledjnK5DFy42EvH2dkZcOFiLx3AMC5YCobAUjAEloIhsBQMgaVgCCwFQ2ApGAJLwRBYCobAUjAEloIhsBQMgaVgCCwFQ2ApGAJLwRBYCobAUjAEloIhsBQMgaVgCC2TorA1DaHOKMwdqAoHV2D+0Q+h2BKY16qKeTSqUhS2IY6TFpo/VBXNxU+K8scl6Oucho1zVdEApbezEI6otnSfSEH5ZPQ32Hjmdb2WvIcwJ64/24aCqqnivqbb1t9lx+8aUtyFRCQGxtY3VdFaHl+K2yNIx5o0AHIwoxDXbek+Dc1COr1kK7twIgP05BiQcFxfgtypDHDRIikQS+5ZyBVVRQC6u7vVX8FZWFhQf1X5IVaKZpFfGYRQNAP5W1VRt0/1J8dJ66SQD0s0Cj8tH6mK+ggp7iKGEELEZzIZVWPhK0VlIs0imMvT8ASfwlCkH4xXR1BWMZLTHZgZ7ocwxoZ7DZh7f0g67SlFwYT01CB0ie/FdgdebsOxLacomauQUO3K63+aUFLXKB6D2M5SICevR7DfGKMlr4OWIogYWgiv2EBS9MUMiC/vwP6bVZiMic7EIPnhxgpSS3YoMgKTr1TM0xgufc5OEynOt8HAmC4jA9kPJv7fEgzg5/CEGtTPGcwz8LunVtV1bHfWazIUX9fhZ4xP2ke5zaUAzLXCnf2Q/qw+ByCIGH5CCAJJMfDatsEeiBvFJ3LFeiKlzXjjSfNKfpZc/wMzvlLcwP7vMedSj1htjcDaV4zPWvGJd7Z2/Z4YcxHjMcG0z5buk7tU+qgnx11qTVaLpVD3n3hrG4MA+IlRTwhBsO3DseTb464g96vo3KJriaOddraFAyil8S4ypohiqVXpyfAsrOydQslHCqv9GlK4E813WnJ9n+5EUyeibqwtKjS66XHdLUWtsREElEK1WUmc74CXGEGEEDQoRa3OYf2os55IIdoYXYfj4hWUXKWsB/G2CMd7mFcM4aqC8WJrOakhhq8Utj45CTo5Gh2fgv3vqkpzvkm+y5wXsdbK5+DWhKSI9Vxx7NxfCoFdjKBCCBqUQnRcTBjue5/kRws9QDWl0E+Rz7sJ1+Tn0/3W99TYX8vvU1Z7DyqF7i89Qh//ZWB9FCbfVM+Qus99+P32xLy0l7K24HonC3X/RvYO51IXdjGCCCFoWAqdEIYi45Dc2oXc1iLE8QQy8ItzsN1tWS+sMKZnHObw//Yxmcz+nQJjxWq3sPUc4vPbkBNJ5t4mJMRWEnkBuUt5meKXaJL3FJtgyna0FPQ9xdoB7uPfDyEtkmad/ApUgiy3tYkUxi5WVjLxRjZvX0Gu8UmXWyAm1HgPSWx3ZkKfpqYhW2n0BvLLI/KlW7UOuUei6cXY2JgsQWlcCqRkZsDotQamaygFG1/+JU+gV1ulj+vVI6cY5KfP8ThrPYGlgwyedNRg47W+qUXIfvFJuG5xAnCydAIs0fdKil5RtBS0yCVbSzHsyiHkUXrEOqJjbLgXT17zO47jdIVLHIuX49DXo9ruGYT4b6tg/qeuS7QU47Bmy+mtI6nHVvXAVKVoKtYE1d8zm0t+GbcY14mmbbnHy6tm8SBSiP090J7ZbNyvudsY/RuOYztpEY1LUdiBxFQKVmResANruFRabygfp0Pi/UblB7F25Yf5Qey+XOK+a9tf9Z65/whCMM3hgXIKpp1hKRgCS8EQWAqGwFIwBJaCIbAUDIGlYAgsBUNgKRgCS8EQWAqGwFIwBJaCIbAUDIGlYAgsBUNgKRhCx8XFBXDhYi+8UjAuAP4HZK3x1wjSfWEAAAAASUVORK5CYII=" InformativeScreenshot="a3d2a7390f0632ab2e5603f86bb54383.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'inglés'" sap:VirtualizedContainerService.HintSize="510,156" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9a31efa-dae7-4ac0-bb0f-a5cf575b1775" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.deepl.com/translator" DesignTimeRectangle="1208, 538, 182, 24" ElementType="Text" FriendlyName="'inglés'" FullSelectorArgument="&lt;webctrl aaname='inglés' parentid='dl_translator' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='inglés' parentid='dl_translator' tag='DIV' type='' check:text='inglés' /&gt;" Guid="51fe98fa-aba3-4054-b4ef-d1a55c680d91" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALoAAAAcCAYAAADWS6UCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVHhe7djhbYMwEEDh7uS5wiqITWCSiDEiscMVWwbOxpC0hoDk90mpSg1JfzysIz8CFIDQUQRCRxEIHUUgdBSB0FEEQkcRCB1FUKEP0j6MmKb3xwd61mJMLcl3frVSGSP10x8DJ7g89L4xUnWDPwLO8Z3RZSt0+/dHO95iwLmuDR34ktXosowRy7EdL8w4R7tXYgcO1m3QcdiJ0IeuUtesZ/TwPZnhkedt6GFkvdTjsZ6pXZA6fv9wuRe6izxxzfQ5q/XxekJHjvehRw+nQYQu0Eral1ta7O7o9mZZX+NuGP9Z+nfgCB+NLloQug1Y77yTvdDnHT/xmuKez0ncRMA/XBS6WtvjriN45MsPPRGhO2cr9PGnnfM/n7nT/wfwF3mh+3OCXX0eO7ZC9zN4tKsPXT3fMH2j1wgd+TJDt3zsLm4ffRR2HLoVf32oHz7jNSJHLhX6gRJhA1c6JXS+HsTdZIZux5Z41rYPonxLgnvJ3tFXszaR44bOmdGBmyF0FIHQUQRCRwFEfgHMwOTcqsPlzwAAAABJRU5ErkJggg==" InformativeScreenshot="7b3360ea14e694d65991dce8f57e0090.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo' /&gt;" SearchSteps="FuzzySelector, Image">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="1196, 526, 230, 48" ElementType="Button" FriendlyName="'inglés'" FullSelectorArgument="&lt;webctrl aaname='inglés' parentid='dl_translator' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='inglés' parentid='dl_translator' tag='BUTTON' type='' check:text='inglés' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOoAAAA0CAYAAACEoKQRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHySURBVHhe7dnBbcIwGIDR7pS5yioRm8AkiBk4IbGDG6cBnGBQD0HhT9+TKE2dQC8ftsNX6pxOp/wEfJhrm0KFDyZUCECoEIBQIQChQgBChQCECgEIFQIQKgQgVAhAqBCAUCEAoUIAQoUAhAoBCBUCECoEIFQIQKgQwAyhXtLuu0nN9jgcz+jQpqZpU/WVz7u0aZrUHoZjWLGwoR63TdrsL8MRrNsMob7Rs1Dz37933UcE/A8xQ4V/ZoZQf5e+92Xo/TgvT5tuH9k/KjPgaDwHOQ2zEuplvymuedyjjl/THpZ1eFuo40iOqe2Oyz1lH1QZ73Bz6FWofaSVa67v8zDeXS9U1uB9oU5uLo0i6gPbpN25H7p7OaPm2B+v6YMf3qv8HdbkbaGWs2c2CjUHWM58V69Cvc24lcc1zts5lQ8BCCxYqMXYK/11gmU9lgu1ElF/zrNQu595n/v3PWf9/4CIlgl1OGc0q96Wrc9CHfagk1n1sm9vwR+35ZhQWY+FQs2GWPs4h2gnYU5DzaZfv5Q3j6ZjImUtZgh1RpUwgQ8L1dcrULdQqHnZO91r5htJ7tJCzWIz6sNeU6Tw1GKhAn8nVAhAqBCAUCEAoUIAQoUAhAoBCBUCECoEIFQIQKgQgFAhAKFCAEKFAIQKAQgVAvhtM6Uf3lUcX9FAPyAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                              <Sequence DisplayName="Sequence - Traduccion de palabras" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPalabras]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,1262" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                  <ui:ForEachRow.Body>
+                                    <ActivityAction x:TypeArguments="sd:DataRow">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,1141" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Estonio" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="434,185" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
+                                          <ui:GetRowItem.Value>
+                                            <OutArgument x:TypeArguments="x:String">[strPalabra]</OutArgument>
+                                          </ui:GetRowItem.Value>
+                                        </ui:GetRowItem>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[strPalabra]" />
+                                        <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayMS="3000" DisplayName="Type Into 'TEXTAREA'" EmptyField="True" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[strPalabra]">
+                                          <ui:TypeInto.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d2c2f96-d1a5-4386-bd00-40eb1173484b" InformativeScreenshot="b6dfcf1fec4379fc725e7a03e0eb239a" Selector="&lt;webctrl tag='TEXTAREA' /&gt;">
+                                              <ui:Target.TimeoutMS>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:Target.TimeoutMS>
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:TypeInto.Target>
+                                        </ui:TypeInto>
+                                        <uix:NGetText DisplayName="Get Text 'Black'" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="f9a31efa-dae7-4ac0-bb0f-a5cf575b1775" Version="V1">
+                                          <uix:NGetText.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://www.deepl.com/translator#et/en/Must" DesignTimeRectangle="989, 407, 618, 78" ElementType="InputBox" FriendlyName="'Black'" FullSelectorArgument="&lt;webctrl idx='2' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='TEXTAREA' aaname='' /&gt;" Guid="46b5093d-94e1-4131-9676-8cf6ce549638" ImageBase64="" InformativeScreenshot="cbfa593c1a6472a02f8ad6244e1ef18c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo' /&gt;" SearchSteps="Selector, FuzzySelector" />
+                                          </uix:NGetText.Target>
+                                          <uix:NGetText.Text>
+                                            <OutArgument x:TypeArguments="x:String">[strPalabraTraducida]</OutArgument>
+                                          </uix:NGetText.Text>
+                                        </uix:NGetText>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Palabra traducida: &quot; + strPalabraTraducida]" />
+                                        <ui:UpdateRowItem ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="434,190" sap2010:WorkflowViewState.IdRef="UpdateRowItem_2" Row="[row]" Value="[strPalabraTraducida]" />
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ui:ForEachRow.Body>
+                                </ui:ForEachRow>
+                              </Sequence>
+                              <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+                            </Sequence>
+                          </ActivityAction>
+                        </uix:NApplicationCard.Body>
+                        <uix:NApplicationCard.TargetApp>
+                          <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="52afd651bcdd59c9f1b120d0eac032a0.png" Selector="&lt;html app='chrome.exe' title='DeepL Translate - El mejor traductor del mundo'/&gt;" Url="https://www.deepl.com/translator" />
+                        </uix:NApplicationCard.TargetApp>
+                      </uix:NApplicationCard>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:BrowserScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:BrowserScope>
+            </Sequence>
+          </ActivityAction>
+        </ui:OpenBrowser.Body>
+      </ui:OpenBrowser>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="509,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Escritura de archivo: &quot; + strPalabrasTraducidasPath]" />
+    <ui:WriteRange AddHeaders="True" DataTable="[dtPalabras]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="509,115" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[strPalabrasTraducidasPath]" />
+  </Sequence>
+</Activity>
